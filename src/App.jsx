@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React from 'react'
 import './App.css'
+import { TwitterCard } from './TwitterCard'
 
-function App() {
-  const [count, setCount] = useState(0)
+const users = [
+    { 
+        userName: 'FerPooLe',
+         name: 'Fernando Poole',
+         isFollowing: true
+    },
+    {
+         userName: 'midudev',
+         name: 'Miguel Durán',
+         isFollowing: false
+    },
+    {
+        userName: 'Danidev',
+        name: 'Daniel Verduras',
+        isFollowing: true
+    },
+    {
+        userName: 'RealAdsu',
+        name: 'Raul Adsuara',
+        isFollowing: false
+    }   
+]
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+export function App () {
+    const format = (userName) => `@${userName}`
+
+    return (
+    <section className='tw-cards'>
+        {
+            users.map(({ userName, name, isFollowing }) => (
+                    <TwitterCard 
+                    key={userName}
+                    formatUserName={format}
+                    userName={userName} 
+                    initIsFollowing={isFollowing}>
+                        {name}
+                    </TwitterCard>
+            ))
+        }
+    </section>
+    )
 }
-
-export default App

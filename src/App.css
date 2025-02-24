@@ -1,42 +1,67 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.tw-card {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: .8rem;
+    justify-content: space-between;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.tw-card-header {
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.tw-card-info {
+    display: flex;
+    flex-direction: column;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.tw-card-info-user {
+    opacity: .6;
 }
 
-.card {
-  padding: 2em;
+.tw-card-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 100px;
 }
 
-.read-the-docs {
-  color: #888;
+.tw-card-button {
+    margin-left: 16px;
+    border: 0;
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-weight: bold;
+}
+
+.tw-card-text {
+    display: block;
+}
+
+.tw-card-button:hover {
+    background-color: rgb(0, 255, 170);
+    transition: .3s ease background-color;
+}
+
+.tw-card-button.is-following {
+    background-color: rgb(0, 153, 255);
+    width: 140px;
+}
+
+.tw-card-button.is-following:hover .tw-card-button-text {
+    display: none;
+}   
+
+.tw-card-button.is-following:hover {
+    background-color: red;
+    transition: all;
+}
+
+.tw-card-button.is-following:hover .tw-card-button-stop-follow {
+    display: block;
+}
+
+.tw-card-button-stop-follow {
+    display: none;
 }
